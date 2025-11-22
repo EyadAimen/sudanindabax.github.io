@@ -1,0 +1,60 @@
+function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    
+    sheet.appendRow([
+      new Date(),
+      data.name,
+      data.email,
+      data.gender,
+      data.phone,
+      data.age,
+      data.country,
+      data.cv,
+      data.occupation,
+      data.university,
+      data.year,
+      data.fieldOfStudy,
+      data.employmentInfo,
+      data.importanceIndaba,
+      data.events,
+      data.shareInformation,
+      data.stableInternet,
+      data.haveLaptop,
+      data.vpn,
+      data.gatherly,
+      data.hearAboutUs,
+      data.comments,
+      data.dataStructures,
+      data.pythonPrograming,
+      data.linearAlgebra,
+      data.statistics,
+      data.calculus,
+      data.mlKnowledge,
+      data.tutorExprience
+    ]);
+    
+    return ContentService
+      .createTextOutput(JSON.stringify({ success: true }))
+      .setMimeType(ContentService.MimeType.JSON);
+      
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ success: false, error: error.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function doGet(e) {
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: 'ready' }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+
+
+
+// **Google Sheet headers (first row):**
+
+// Timestamp | Name | Email | Gender | Phone | Age | Country | CV | Occupation | University | Year | Field of Study | Employment Info | Importance Indaba | Events Attended | Share Information | Stable Internet | Have Laptop | VPN | Gatherly | Hear About Us | Comments | Data Structures | Python Programming | Linear Algebra | Statistics | Calculus | ML Knowledge | Tutor Experience
