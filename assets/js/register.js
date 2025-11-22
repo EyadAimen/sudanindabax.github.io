@@ -1,5 +1,5 @@
 // google sheet code url
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxS2PEFLuLBD2GGpqF1SAJTemfoH86i2fiUIzh09jcLHny-PK_puI0Lscq40IITaD4S/exec"
+const GOOGLE_SCRIPT_URL = "URL"
 
 // section controllers
 let currentSection = 1;
@@ -260,3 +260,4 @@ function validateSection(sectionId) {
   }
   
 });
+
